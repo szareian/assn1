@@ -1,0 +1,120 @@
+<html>
+<head>
+  <title> Assignment 1 </title>
+  <h1> Histogram Generator </h1>
+  <link rel="stylesheet" href="histogram.css" type="text/css">
+  <script type="text/javascript" src="calculate.js"></script>
+
+</head>
+
+<style>
+tr.spaceUnder>td {
+  padding-bottom: 1.5em;
+}
+</style>
+
+<body>
+  <table id="t1" style="display: inline-block;">
+    <tr>
+      <th>Lower Bounds</th>
+    </tr>
+    <tr class="spaceUnder">
+      <td>Max</td>
+      <td><input type="number" id="max" value="100.00" onkeyup="pressedSomething()" min='0.00' max='100.00' ></td>
+    </tr>
+    <tr class="spaceUnder">
+      <td>A+</td>
+      <td><input type="number" id="aPlus" onkeyup="getRowId(id)" value="95.00" min='0.00' max='100.00' ></td>
+    </tr>
+    <tr class="spaceUnder">
+      <td>A</td>
+      <td><input type="number" id="a" onkeyup="getRowId(id)" value="90.00" min='0.00' max='100.00' ></td>
+    </tr>
+    <tr class="spaceUnder">
+      <td>A-</td>
+      <td><input type="number" id="aMinus" onkeyup="getRowId(id)" value="85.00" min='0.00' max='100.00' ></td>
+    </tr>
+    <tr class="spaceUnder">
+      <td>B+</td>
+      <td><input type="number" id="bPlus" onkeyup="getRowId(id)" value="80.00" min='0.00' max='100.00' ></td>
+    </tr>
+    <tr class="spaceUnder">
+      <td>B</td>
+      <td><input type="number" id="b" onkeyup="getRowId(id)" value="75.00" min='0.00' max='100.00' ></td>
+    </tr>
+    <tr class="spaceUnder">
+      <td>B-</td>
+      <td><input type="number" id="bMinus" onkeyup="getRowId(id)" value="70.00" min='0.00' max='100.00' ></td>
+    </tr>
+    <tr class="spaceUnder">
+      <td>C+</td>
+      <td><input type="number" id="cPlus" onkeyup="getRowId(id)" value="65.00" min='0.00' max='100.00' ></td>
+    </tr>
+    <tr class="spaceUnder">
+      <td>C</td>
+      <td><input type="number" id="c" onkeyup="getRowId(id)" value="60.00" min='0.00' max='100.00' ></td>
+    </tr>
+    <tr class="spaceUnder">
+      <td>C-</td>
+      <td><input type="number" id="cMinus" onkeyup="getRowId(id)" value="55.00" min='0.00' max='100.00' ></td>
+    </tr>
+    <tr class="spaceUnder">
+      <td>D</td>
+      <td><input type="number" id="d" onkeyup="getRowId(id)" value="50.00" min='0.00' max='100.00' ></td>
+    </tr>
+    <tr class="spaceUnder">
+      <td>F</td>
+      <td><input type="number" id="f" onkeyup="getRowId(id)" value="0.00" min='0.00' max='100.00' ></td>
+    </tr>
+  </table>
+
+  <table id="t2" style="float: Right;">
+    <tr>
+      <th>Histogram</th>
+    </tr>
+    <tr>
+      <td>A+</td>
+      <td id='his'></td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td id='his'></td>
+    </tr>
+    <tr>
+      <td>A-</td>
+      <td id='his'></td>
+    </tr>
+    <tr>
+      <td>B+</td>
+      <td id='his'></td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td id='his'></td>
+    </tr>
+    <tr>
+      <td>B-</td>
+      <td id='his'></td>
+    </tr>
+    <tr>
+      <td>C+</td>
+      <td id='his'></td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td id='his'></td>
+    </tr>
+    <tr>
+      <td>C-</td>
+      <td id='his'></td>
+    </tr>
+    <tr>
+      <td>D</td>
+      <td id='his'></td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td id='his'></td>
+    </tr>
+  </table>
+</html>

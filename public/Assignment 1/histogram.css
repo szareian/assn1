@@ -1,0 +1,39 @@
+table {
+    border: 1px solid rgb(234,241,243);
+    border-spacing: 20px;
+    background-color: rgb(234,241,243);
+    width:40%;
+    /*padding-left: 50px;*/
+}
+
+
+table#t1 {
+  padding-right: 95px;
+  /*padding-right: inherit;*/
+  padding-bottom: inherit;
+
+
+  margin-top: 20px;
+  margin-left: 20px;
+
+}
+
+table#t2 {
+  padding-right: 70px;
+
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+td {
+  font-size: 20;
+  text-align: left;
+  padding-left: 50px;
+}
+
+th {
+  font-size: 30;
+  color: rgb(204,29,10);
+  padding: 10px;
+  text-align: left;
+}

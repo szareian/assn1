@@ -3,7 +3,17 @@
   <title> Assignment 1 </title>
   <h1> Histogram Generator </h1>
   <link rel="stylesheet" href="histogram.css" type="text/css">
-  <script type="text/javascript" src="calculate.js"></script>
+  <!-- <script type="text/javascript" src="calculate.js"></script> -->
+
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+
+<!-- <script>
+$(document).ready(function(){
+    $.getScript("calculate.js",function(){
+   alert("Script loaded and executed.")});
+});
+
+</script> -->
 
 </head>
 
@@ -13,14 +23,15 @@ tr.spaceUnder>td {
 }
 </style>
 
-<body>
+<body onload="set_boundaries()">
+
   <table id="t1" style="display: inline-block;">
     <tr>
       <th>Lower Bounds</th>
     </tr>
     <tr class="spaceUnder">
       <td>Max</td>
-      <td><input type="number" id="max" value="100.00" onkeyup="pressedSomething()" min='0.00' max='100.00' ></td>
+      <td><input type="number" id="max" value="100.00" onkeyup="getRowId(id)" min='0.00' max='100.00' ></td>
     </tr>
     <tr class="spaceUnder">
       <td>A+</td>
@@ -74,47 +85,52 @@ tr.spaceUnder>td {
     </tr>
     <tr>
       <td>A+</td>
-      <td id='his'></td>
+      <td id='A+'></td>
     </tr>
     <tr>
       <td>A</td>
-      <td id='his'></td>
+      <td id='A-'></td>
     </tr>
     <tr>
       <td>A-</td>
-      <td id='his'></td>
+      <td id='A'></td>
     </tr>
     <tr>
       <td>B+</td>
-      <td id='his'></td>
+      <td id='B+'></td>
     </tr>
     <tr>
       <td>B</td>
-      <td id='his'></td>
+      <td id='B'></td>
     </tr>
     <tr>
       <td>B-</td>
-      <td id='his'></td>
+      <td id='B-'></td>
     </tr>
     <tr>
       <td>C+</td>
-      <td id='his'></td>
+      <td id='C+'></td>
     </tr>
     <tr>
       <td>C</td>
-      <td id='his'></td>
+      <td id='C'></td>
     </tr>
     <tr>
       <td>C-</td>
-      <td id='his'></td>
+      <td id='C-'></td>
     </tr>
     <tr>
       <td>D</td>
-      <td id='his'></td>
+      <td id='D'></td>
     </tr>
     <tr>
       <td>F</td>
-      <td id='his'></td>
+      <td id='F'></td>
     </tr>
   </table>
+
+  <script type="text/javascript" src="calculate.js"></script>
+
+
+</body>
 </html>

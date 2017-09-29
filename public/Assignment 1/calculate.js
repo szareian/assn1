@@ -64,16 +64,16 @@ var grades = [65.95, 56.98, 78.62, 96.1, 90.3, 72.24, 92.34, 60.00, 81.43, 86.22
 
 set_boundaries();
 var histogram = {
-  aPlus:0,
-  a:0,
-  aMinus:0,
-  bPlus:0,
-  b:0,
-  bMinus:0,
-  cPlus:0,
-  c:0,
-  cMinus:0,
-  d:0,
+  aPlus:1,
+  a:3,
+  aMinus:3,
+  bPlus:2,
+  b:1,
+  bMinus:4,
+  cPlus:1,
+  c:2,
+  cMinus:2,
+  d:3,
   f:0
 };
 
@@ -127,7 +127,17 @@ console.log(set_boundaries());
 
 function draw_histogram() {
   var smiley_face = "&#9786; ";
-    document.getElementById("F").innerHTML = smiley_face.repeat(histogram.f);
+  document.getElementById("A+").innerHTML = smiley_face.repeat(histogram.aPlus);
+  document.getElementById("A").innerHTML = smiley_face.repeat(histogram.a);
+  document.getElementById("A-").innerHTML = smiley_face.repeat(histogram.aMinus);
+  document.getElementById("B+").innerHTML = smiley_face.repeat(histogram.bPlus);
+  document.getElementById("B").innerHTML = smiley_face.repeat(histogram.b);
+  document.getElementById("B-").innerHTML = smiley_face.repeat(histogram.bMinus);
+  document.getElementById("C+").innerHTML = smiley_face.repeat(histogram.cPlus);
+  document.getElementById("C").innerHTML = smiley_face.repeat(histogram.c);
+  document.getElementById("C-").innerHTML = smiley_face.repeat(histogram.cMinus);
+  document.getElementById("D").innerHTML = smiley_face.repeat(histogram.d);
+  document.getElementById("F").innerHTML = smiley_face.repeat(histogram.f);
 }
 
 draw_histogram()

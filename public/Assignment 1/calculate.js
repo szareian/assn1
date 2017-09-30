@@ -134,6 +134,19 @@ function overlap(a,b){
     document.getElementById("error").innerHTML = "";
   }
 }
+
+function check_type(){
+  if(isNaN(lower_boundary.max) || isNaN(lower_boundary.aPlus) || isNaN(lower_boundary.a)
+  || isNaN(lower_boundary.aMinus) || isNaN(lower_boundary.bPlus) || isNaN(lower_boundary.b)
+  || isNaN(lower_boundary.bMinus) || isNaN(lower_boundary.cPlus) || isNaN(lower_boundary.c)
+  || isNaN(lower_boundary.cMinus) || isNaN(lower_boundary.d) || isNaN(lower_boundary.f)){
+    document.getElementById("error").innerHTML = " Please Enter a Valid Number For The Lower Bounds!";
+  }
+  else{
+    document.getElementById("error").innerHTML = "";
+  }
+}
+
 function error_handling(){
   overlap(lower_boundary.aPlus, lower_boundary.max);
   overlap(lower_boundary.a, lower_boundary.aPlus);
@@ -146,6 +159,8 @@ function error_handling(){
   overlap(lower_boundary.cMinus, lower_boundary.c);
   overlap(lower_boundary.d, lower_boundary.cMinus);
   overlap(lower_boundary.f, lower_boundary.d);
+
+  check_type();
 }
 
 function draw_histogram() {

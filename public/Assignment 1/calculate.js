@@ -2,10 +2,7 @@ var grades = [65.95, 56.98, 78.62, 96.1, 90.3, 72.24, 92.34, 60.00, 81.43, 86.22
   88.33, 9.03, 49.93, 52.34, 53.11, 50.10, 88.88, 55.32, 55.69, 61.68, 70.44,
   70.54, 90.0, 71.11, 80.01];
 
-
-var lower_boundary = [];
-
-lower_boundary = {
+var lower_boundary = {
   max:0,
   aPlus:0,
   a:0,
@@ -19,34 +16,6 @@ lower_boundary = {
   d:0,
   f:0
 };
-
-
-function getRowId(id){
-  a = "";
-  a = parseFloat(document.getElementById(id).value);
-  return a;
-  // return parseFloat(document.getElementById(id).value);
-  // console.log(x);
-}
-
-
-function set_boundaries(){
-  lower_boundary.max = getRowId("max");
-  lower_boundary.aPlus = getRowId("aPlus");
-  lower_boundary.a = getRowId("a");
-  lower_boundary.aMinus = getRowId("aMinus");
-  lower_boundary.bPlus = getRowId("bPlus");
-  lower_boundary.b = getRowId("b");
-  lower_boundary.bMinus = getRowId("bMinus");
-  lower_boundary.cPlus = getRowId("cPlus");
-  lower_boundary.c = getRowId("c");
-  lower_boundary.cMinus = getRowId("cMinus");
-  lower_boundary.d = getRowId("d");
-  lower_boundary.f = getRowId("f");
-}
-
-// console.log(lower_boundary);
-
 
 var histogram = {
   aPlus:0,
@@ -62,21 +31,32 @@ var histogram = {
   f:0
 };
 
-function reset() {
-  // var histogram = {
-  //   aPlus:0,
-  //   a:0,
-  //   aMinus:0,
-  //   bPlus:0,
-  //   b:0,
-  //   bMinus:0,
-  //   cPlus:0,
-  //   c:0,
-  //   cMinus:0,
-  //   d:0,
-  //   f:0
-  // };
+function getRowId(id){
+  a = "";
+  a = parseFloat(document.getElementById(id).value);
+  return a;
+}
 
+
+function set_boundaries(){
+  // fetching the boundary values and storing them in the 'lower_boundary' array
+  lower_boundary.max = getRowId("max");
+  lower_boundary.aPlus = getRowId("aPlus");
+  lower_boundary.a = getRowId("a");
+  lower_boundary.aMinus = getRowId("aMinus");
+  lower_boundary.bPlus = getRowId("bPlus");
+  lower_boundary.b = getRowId("b");
+  lower_boundary.bMinus = getRowId("bMinus");
+  lower_boundary.cPlus = getRowId("cPlus");
+  lower_boundary.c = getRowId("c");
+  lower_boundary.cMinus = getRowId("cMinus");
+  lower_boundary.d = getRowId("d");
+  lower_boundary.f = getRowId("f");
+}
+
+
+function reset() {
+  // reset histogram
   histogram.aPlus = 0
   histogram.a = 0;
   histogram.aMinus = 0;
@@ -90,7 +70,6 @@ function reset() {
   histogram.f = 0;
 
 
-  // console.log('resetting...!');
   document.getElementById("A+").value = "";
   document.getElementById("A").value = "";
   document.getElementById("A-").value = "";
@@ -105,6 +84,7 @@ function reset() {
 }
 
 function setup_histogram() {
+  // count the number of students in each boundary
   set_boundaries();
   for (var i = 0; i < grades.length; i++) {
     if (lower_boundary.max > grades[i] && grades[i] >= lower_boundary.aPlus ) {
@@ -141,19 +121,36 @@ function setup_histogram() {
       histogram.f++;
     }
     else{
-     console.log('out of range!');
+     document.getElementById("error").innerHTML = 'out of range!';
     }
-
   }
-  // console.log(lower_boundary);
 }
 
+function overlap(a,b){
+  if(a>b){
+    document.getElementById("error").innerHTML = "Bounds of LetterGrades Have OverLaped! Please Change the Lower Boundary Accordingly!"
+  }
+  else{
+    document.getElementById("error").innerHTML = "";
+  }
+}
 function error_handling(){
-
+  overlap(lower_boundary.aPlus, lower_boundary.max);
+  overlap(lower_boundary.a, lower_boundary.aPlus);
+  overlap(lower_boundary.aMinus, lower_boundary.a);
+  overlap(lower_boundary.bPlus, lower_boundary.aMinus);
+  overlap(lower_boundary.b, lower_boundary.bPlus);
+  overlap(lower_boundary.bMinus, lower_boundary.b);
+  overlap(lower_boundary.cPlus, lower_boundary.bMinus);
+  overlap(lower_boundary.c, lower_boundary.cPlus);
+  overlap(lower_boundary.cMinus, lower_boundary.c);
+  overlap(lower_boundary.d, lower_boundary.cMinus);
+  overlap(lower_boundary.f, lower_boundary.d);
 }
 
 function draw_histogram() {
   setup_histogram();
+  error_handling();
   var smiley_face = "&#9786; ";
   document.getElementById("A+").innerHTML = smiley_face.repeat(histogram.aPlus);
   document.getElementById("A").innerHTML = smiley_face.repeat(histogram.a);

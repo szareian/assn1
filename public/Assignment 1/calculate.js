@@ -87,7 +87,7 @@ function setup_histogram() {
   // count the number of students in each boundary
   set_boundaries();
   for (var i = 0; i < grades.length; i++) {
-    if (lower_boundary.max > grades[i] && grades[i] >= lower_boundary.aPlus ) {
+    if (lower_boundary.max >= grades[i] && grades[i] >= lower_boundary.aPlus ) {
       histogram.aPlus++;
     }
     else if (lower_boundary.aPlus > grades[i] && grades[i] >= lower_boundary.a) {
@@ -148,7 +148,7 @@ function check_type(){
 }
 
 function out_of_range(){
-  if(lower_boundary.max>100  || lower_boundary.aPlus>100>100 || lower_boundary.a>100
+  if(lower_boundary.max>100  || lower_boundary.aPlus>100 || lower_boundary.a>100
   || lower_boundary.aMinus>100 || lower_boundary.bPlus>100 || lower_boundary.b>100
   || lower_boundary.bMinus>100 || lower_boundary.cPlus>100 || lower_boundary.c>100
   || lower_boundary.cMinus>100 || lower_boundary.d>100 || lower_boundary.f>100){
@@ -177,13 +177,16 @@ function error_handling(){
   overlap(lower_boundary.f, lower_boundary.d);
 
   check_type();
+
+  out_of_range();
 }
 
 function draw_histogram() {
   setup_histogram();
   error_handling();
-  out_of_range()
+
   var smiley_face = "&#9786; ";
+
   document.getElementById("A+").innerHTML = smiley_face.repeat(histogram.aPlus);
   document.getElementById("A").innerHTML = smiley_face.repeat(histogram.a);
   document.getElementById("A-").innerHTML = smiley_face.repeat(histogram.aMinus);

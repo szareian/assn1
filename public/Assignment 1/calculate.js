@@ -121,14 +121,14 @@ function setup_histogram() {
       histogram.f++;
     }
     else{
-     document.getElementById("error").innerHTML = 'out of range!';
+     document.getElementById("error").innerHTML = 'Error: Out of Range!';
     }
   }
 }
 
 function overlap(a,b){
   if(a>b){
-    document.getElementById("error").innerHTML = "Bounds of LetterGrades Have OverLaped! Please Change the Lower Boundary Accordingly!"
+    document.getElementById("error").innerHTML = "Error: Bounds of LetterGrades Have OverLaped! Please Change the Lower Boundary Accordingly!"
   }
   else{
     document.getElementById("error").innerHTML = "";
@@ -140,10 +140,26 @@ function check_type(){
   || isNaN(lower_boundary.aMinus) || isNaN(lower_boundary.bPlus) || isNaN(lower_boundary.b)
   || isNaN(lower_boundary.bMinus) || isNaN(lower_boundary.cPlus) || isNaN(lower_boundary.c)
   || isNaN(lower_boundary.cMinus) || isNaN(lower_boundary.d) || isNaN(lower_boundary.f)){
-    document.getElementById("error").innerHTML = " Please Enter a Valid Number For The Lower Bounds!";
+    document.getElementById("error").innerHTML = " Error: Please Enter a Valid Number For The Lower Bounds!";
   }
   else{
     document.getElementById("error").innerHTML = "";
+  }
+}
+
+function out_of_range(){
+  if(lower_boundary.max>100  || lower_boundary.aPlus>100>100 || lower_boundary.a>100
+  || lower_boundary.aMinus>100 || lower_boundary.bPlus>100 || lower_boundary.b>100
+  || lower_boundary.bMinus>100 || lower_boundary.cPlus>100 || lower_boundary.c>100
+  || lower_boundary.cMinus>100 || lower_boundary.d>100 || lower_boundary.f>100){
+    document.getElementById("error").innerHTML = "Error: Lower Bound More Than 100! The Lower Bounds Have To Be Between 0 and 100!";
+  }
+
+  if(lower_boundary.max<0  || lower_boundary.aPlus<0 || lower_boundary.a<0
+  || lower_boundary.aMinus<0 || lower_boundary.bPlus<0 || lower_boundary.b<0
+  || lower_boundary.bMinus<0 || lower_boundary.cPlus<0 || lower_boundary.c<0
+  || lower_boundary.cMinus<0 || lower_boundary.d<0 || lower_boundary.f<0){
+    document.getElementById("error").innerHTML = "Error: Lower Bound Less Than 0! The Lower Bounds Have To Be Between 0 and 100!";
   }
 }
 
@@ -166,6 +182,7 @@ function error_handling(){
 function draw_histogram() {
   setup_histogram();
   error_handling();
+  out_of_range()
   var smiley_face = "&#9786; ";
   document.getElementById("A+").innerHTML = smiley_face.repeat(histogram.aPlus);
   document.getElementById("A").innerHTML = smiley_face.repeat(histogram.a);
@@ -178,11 +195,6 @@ function draw_histogram() {
   document.getElementById("C-").innerHTML = smiley_face.repeat(histogram.cMinus);
   document.getElementById("D").innerHTML = smiley_face.repeat(histogram.d);
   document.getElementById("F").innerHTML = smiley_face.repeat(histogram.f);
-  // console.log(lower_boundary);
-  // console.log(histogram);
-  // console.log(histogram.aPlus + histogram.a + histogram.aMinus + histogram.bPlus +
-  //   histogram.b + histogram.bMinus + histogram.cPlus + histogram.c + histogram.cMinus
-  //   + histogram.d + histogram.f);
 }
 
 draw_histogram();

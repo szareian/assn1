@@ -90,7 +90,7 @@ function reset() {
   histogram.f = 0;
 
 
-  console.log('doodoo');
+  // console.log('resetting...!');
   document.getElementById("A+").value = "";
   document.getElementById("A").value = "";
   document.getElementById("A-").value = "";
@@ -148,6 +148,9 @@ function setup_histogram() {
   // console.log(lower_boundary);
 }
 
+function error_handling(){
+
+}
 
 function draw_histogram() {
   setup_histogram();
@@ -164,10 +167,10 @@ function draw_histogram() {
   document.getElementById("D").innerHTML = smiley_face.repeat(histogram.d);
   document.getElementById("F").innerHTML = smiley_face.repeat(histogram.f);
   // console.log(lower_boundary);
-  console.log(histogram);
-  console.log(histogram.aPlus + histogram.a + histogram.aMinus + histogram.bPlus +
-    histogram.b + histogram.bMinus + histogram.cPlus + histogram.c + histogram.cMinus
-    + histogram.d + histogram.f);
+  // console.log(histogram);
+  // console.log(histogram.aPlus + histogram.a + histogram.aMinus + histogram.bPlus +
+  //   histogram.b + histogram.bMinus + histogram.cPlus + histogram.c + histogram.cMinus
+  //   + histogram.d + histogram.f);
 }
 
 draw_histogram();

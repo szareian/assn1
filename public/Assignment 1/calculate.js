@@ -126,12 +126,18 @@ function setup_histogram() {
   }
 }
 
-function overlap(a,b){
-  if(a>b){
-    document.getElementById("error").innerHTML = "Error: Bounds of LetterGrades Have OverLaped! Please Change the Lower Boundary Accordingly!"
+
+function overlap(){
+  if(lower_boundary.aPlus > lower_boundary.max || lower_boundary.a > lower_boundary.aPlus
+    || lower_boundary.aMinus > lower_boundary.a || lower_boundary.bPlus > lower_boundary.aMinus
+    || lower_boundary.b > lower_boundary.bPlus || lower_boundary.bMinus > lower_boundary.b
+    || lower_boundary.cPlus > lower_boundary.bMinus || lower_boundary.c > lower_boundary.cPlus
+    || lower_boundary.cMinus > lower_boundary.c || lower_boundary.d > lower_boundary.cMinus
+    || lower_boundary.f > lower_boundary.d){
+      document.getElementById("error_overlap").innerHTML = "Error: The Bounds of Letter Grades Have OverLapped! Please Change the Lower Bound Accordingly!";
   }
   else{
-    document.getElementById("error").innerHTML = "";
+    document.getElementById("error_overlap").innerHTML = "";
   }
 }
 
@@ -163,21 +169,10 @@ function out_of_range(){
   }
 }
 
+
 function error_handling(){
-  overlap(lower_boundary.aPlus, lower_boundary.max);
-  overlap(lower_boundary.a, lower_boundary.aPlus);
-  overlap(lower_boundary.aMinus, lower_boundary.a);
-  overlap(lower_boundary.bPlus, lower_boundary.aMinus);
-  overlap(lower_boundary.b, lower_boundary.bPlus);
-  overlap(lower_boundary.bMinus, lower_boundary.b);
-  overlap(lower_boundary.cPlus, lower_boundary.bMinus);
-  overlap(lower_boundary.c, lower_boundary.cPlus);
-  overlap(lower_boundary.cMinus, lower_boundary.c);
-  overlap(lower_boundary.d, lower_boundary.cMinus);
-  overlap(lower_boundary.f, lower_boundary.d);
-
+  overlap();
   check_type();
-
   out_of_range();
 }
 

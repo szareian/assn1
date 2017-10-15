@@ -5,6 +5,21 @@ class EnrollsController < ApplicationController
   # GET /enrolls.json
   def index
     @enrolls = Enroll.order('student_id ASC')
+    # student_id
+    @st_id = []
+    # course_id
+    @c_id = []
+    # percentage
+    @percentage = []
+    # lettergrade
+    @lettergrade = []
+
+    @enrolls.each do |u|
+      @st_id << u.student_id
+      @c_id << u.course_id
+      @percentage << u.percentage
+      @lettergrade << u.lettergrade
+    end
   end
 
   # GET /enrolls/1

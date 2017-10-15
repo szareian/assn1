@@ -33,4 +33,22 @@
 
 <p id="link", font-size:50><%= link_to "Show Student", "/students" %></p>
 <p id="link", font-size:50><%= link_to "Back to Course Page", "/courses" %></p>
-<!-- <%= link_to "Assign Grades", "/Assignment%201/histogram.html" %> -->
+
+<p id ='histogram'> <%= link_to "Assign Grades", "/Assignment%201/histogram.html" %></p>
+
+<!-- <script type="text/javascript" src="calculate.js"></script> -->
+<!-- <script>
+var en_st_id = <%= raw @st_id.to_json%>;
+var en_c_id = <%= raw @c_id.to_json%>;
+var en_percentage = <%= raw @percentage .to_json%>;
+var en_lettergrade = <%= raw @lettergrade .to_json%>;
+
+// var total = 0;
+for (var i = 0; i < en_st_id.length; i++) {
+  console.log(en_st_id[i]);
+  console.log(en_c_id[i]);
+  console.log(en_percentage[i]);
+  console.log(en_lettergrade[i]);
+}
+// console.log(total);
+</script> -->

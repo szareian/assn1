@@ -17,11 +17,14 @@ ActiveRecord::Schema.define(version: 20171011052918) do
   enable_extension "plpgsql"
 
   create_table "courses", force: :cascade do |t|
+    t.integer  "enroll_id"
     t.string   "course_id"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "courses", ["enroll_id"], name: "index_courses_on_enroll_id", using: :btree
 
   create_table "enrolls", force: :cascade do |t|
     t.integer  "student_id"
@@ -33,12 +36,15 @@ ActiveRecord::Schema.define(version: 20171011052918) do
   end
 
   create_table "students", force: :cascade do |t|
+    t.integer  "enroll_id"
     t.integer  "student_id"
     t.string   "name"
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "students", ["enroll_id"], name: "index_students_on_enroll_id", using: :btree
 
   create_table "widgets", force: :cascade do |t|
     t.string   "name"

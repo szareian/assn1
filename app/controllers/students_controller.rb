@@ -13,7 +13,7 @@ class StudentsController < ApplicationController
       @name << u.name
       @email << u.email
     end
-    
+
   end
 
   # GET /students/1

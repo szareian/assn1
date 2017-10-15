@@ -29,6 +29,7 @@
   </tbody>
 </table>
 
+
 <br>
 
 <p id="link", font-size:50><%= link_to 'New Student', new_student_path %></p>
@@ -36,12 +37,18 @@
 <p id="link", font-size:50><%= link_to "Back to Enroll", "/enrolls" %></p>
 
 
+<!-- <script type="text/javascript" src="student.js.erb"></script> -->
 
-<script>
+
+<!-- <script>
 var st_name = <%= raw @name.to_json%>;
+var st_email = <%= raw @email.to_json%>;
+var st_id = <%= raw @id.to_json%>;
 // var total = 0;
 for (var i = 0; i < st_name.length; i++) {
+  console.log(st_id[i]);
   console.log(st_name[i]);
+  console.log(st_email[i]);
 }
 // console.log(total);
-</script>
+</script> -->

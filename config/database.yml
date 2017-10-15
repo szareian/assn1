@@ -89,10 +89,9 @@ test:
 #
 production:
   <<: *default
-  database: ruby-getting-started_production
-  username: ruby-getting-started
-  password: <%= ENV['RUBY-GETTING-STARTED_DATABASE_PASSWORD'] %>
-  # database: cmpt276_test
+  # database: ruby-getting-started_production
+  # username: ruby-getting-started
+  # password: <%= ENV['RUBY-GETTING-STARTED_DATABASE_PASSWORD'] %>
+  database: cmpt276_production
   # username: cmpt276
   # password: thecmpt276Passw0rd
-  # host: localhost

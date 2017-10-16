@@ -37,18 +37,27 @@
 <p id ='histogram'> <%= link_to "Assign Grades", "/Assignment%201/histogram.html" %></p>
 
 <!-- <script type="text/javascript" src="calculate.js"></script> -->
-<!-- <script>
-var en_st_id = <%= raw @st_id.to_json%>;
-var en_c_id = <%= raw @c_id.to_json%>;
-var en_percentage = <%= raw @percentage .to_json%>;
-var en_lettergrade = <%= raw @lettergrade .to_json%>;
+<script>
+var st_id = <%= raw @st_id.to_json%>;
+var c_id = <%= raw @c_id.to_json%>;
+var percentage = <%= raw @percentage .to_json%>;
+var lettergrade = <%= raw @lettergrade .to_json%>;
 
-// var total = 0;
-for (var i = 0; i < en_st_id.length; i++) {
-  console.log(en_st_id[i]);
-  console.log(en_c_id[i]);
-  console.log(en_percentage[i]);
-  console.log(en_lettergrade[i]);
+var grades = [];
+for (var i = 0; i < st_id.length; i++) {
+  // console.log(st_id[i]);
+  // console.log(c_id[i]);
+  // console.log(percentage[i]);
+  // console.log(lettergrade[i]);
+  if (percentage[i] != 0) {
+    grades.push(percentage[i])
+
+  }
+  // console.log(grades);
+
+
 }
+
 // console.log(total);
-</script> -->
+</script>
+<script type="text/javascript" src="calculate.js"></script>

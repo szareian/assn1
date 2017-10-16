@@ -3,17 +3,6 @@
   <title> Assignment 1 </title>
   <h1> Histogram Generator </h1>
   <link rel="stylesheet" href="histogram.css" type="text/css">
-  <!-- <script type="text/javascript" src="calculate.js"></script> -->
-
-<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> -->
-
-<!-- <script>
-$(document).ready(function(){
-    $.getScript("calculate.js",function(){
-   alert("Script loaded and executed.")});
-});
-
-</script> -->
 
 </head>
 
@@ -26,6 +15,13 @@ tr.spaceUnder>td {
 <body>
   <p id="error" style="color:red;font-size:15px;"></p>
   <p id="error_overlap" style="color:red;font-size:15px;"></p>
+<div class="submission">
+  <form action="/enrolls">
+  <input id='submit' type="Submit">
+  </form>
+</div>
+
+  <tr >
 
   <table id="t1" style="display: inline-block;">
     <tr>
@@ -131,14 +127,8 @@ tr.spaceUnder>td {
     </tr>
 
 
-    <tr >
-    <form action="/enrolls">
-    <input id='submit' type="Submit">
-    </form>
     </tr>
   </table>
-
-
 
 
   <script type="text/javascript" src="calculate.js"></script>

@@ -1,3 +1,7 @@
+.submission{
+  text-align: center;
+}
+
 table {
     border: 1px solid rgb(234,241,243);
     border-spacing: 20px;
@@ -6,11 +10,6 @@ table {
     /*padding-left: 50px;*/
 }
 
-input.submit{
-  color: green;
-  width: 50;
-  height: 5;
-}
 table#t1 {
   padding-right: 95px;
   /*padding-right: inherit;*/
